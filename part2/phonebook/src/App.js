@@ -65,6 +65,14 @@ const App = () => {
                         setMessage(null);
                     }, 5000);
                 })
+                .catch(error => {
+                    setError(true);
+                    setMessage(error.response.data.error);
+                    setTimeout(() => {
+                        setMessage(null);
+                        setError(false);
+                    }, 5000);
+                })
         }
     }
 
